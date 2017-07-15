@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A332422E1F11722300D54F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33242261F11722300D54F6D /* Assets.xcassets */; };
+		A33242301F11722300D54F6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A332422A1F11722300D54F6D /* LaunchScreen.storyboard */; };
+		A33242311F11722300D54F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A332422B1F11722300D54F6D /* Main.storyboard */; };
+		A33242331F11725A00D54F6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33242321F11725A00D54F6D /* AppDelegate.swift */; };
+		A33242351F1172F900D54F6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33242341F1172F900D54F6D /* MainViewController.swift */; };
+		A33242381F11760B00D54F6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33242371F11760B00D54F6D /* Constants.swift */; };
+		A332423D1F11765800D54F6D /* NetworkFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33242391F11765800D54F6D /* NetworkFacade.swift */; };
+		A332423F1F11765800D54F6D /* URLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332423B1F11765800D54F6D /* URLComposer.swift */; };
+		A33242401F11765800D54F6D /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332423C1F11765800D54F6D /* URLProvider.swift */; };
+		A33242421F1179F300D54F6D /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33242411F1179F300D54F6D /* TrackModel.swift */; };
+		CFBCCC0C4FCB29C10EC8A10C /* Pods_RetrowaveRadio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5749336FEB5A3A60E2FE7818 /* Pods_RetrowaveRadio.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		515A5EE44F862F950E61051F /* Pods-RetrowaveRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RetrowaveRadio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RetrowaveRadio/Pods-RetrowaveRadio.debug.xcconfig"; sourceTree = "<group>"; };
+		5749336FEB5A3A60E2FE7818 /* Pods_RetrowaveRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RetrowaveRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		730A67A857A7AEA31CF9E5F1 /* Pods-RetrowaveRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RetrowaveRadio.release.xcconfig"; path = "Pods/Target Support Files/Pods-RetrowaveRadio/Pods-RetrowaveRadio.release.xcconfig"; sourceTree = "<group>"; };
+		A32F30531F0E345E00AEC372 /* RetrowaveRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetrowaveRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A33242261F11722300D54F6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A33242281F11722300D54F6D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A332422A1F11722300D54F6D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A332422B1F11722300D54F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A33242321F11725A00D54F6D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A33242341F1172F900D54F6D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A33242371F11760B00D54F6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A33242391F11765800D54F6D /* NetworkFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkFacade.swift; sourceTree = "<group>"; };
+		A332423B1F11765800D54F6D /* URLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComposer.swift; sourceTree = "<group>"; };
+		A332423C1F11765800D54F6D /* URLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
+		A33242411F1179F300D54F6D /* TrackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A32F30501F0E345E00AEC372 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBCCC0C4FCB29C10EC8A10C /* Pods_RetrowaveRadio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26B59D369C80BA94261C5B51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5749336FEB5A3A60E2FE7818 /* Pods_RetrowaveRadio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		82BD5E685BF53B4C629F5801 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				515A5EE44F862F950E61051F /* Pods-RetrowaveRadio.debug.xcconfig */,
+				730A67A857A7AEA31CF9E5F1 /* Pods-RetrowaveRadio.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A32F304A1F0E345E00AEC372 = {
+			isa = PBXGroup;
+			children = (
+				A32F30551F0E345E00AEC372 /* RetrowaveRadio */,
+				A32F30541F0E345E00AEC372 /* Products */,
+				82BD5E685BF53B4C629F5801 /* Pods */,
+				26B59D369C80BA94261C5B51 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A32F30541F0E345E00AEC372 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A32F30531F0E345E00AEC372 /* RetrowaveRadio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A32F30551F0E345E00AEC372 /* RetrowaveRadio */ = {
+			isa = PBXGroup;
+			children = (
+				A332421A1F11722300D54F6D /* Classes */,
+				A33242241F11722300D54F6D /* Extensions */,
+				A33242251F11722300D54F6D /* Resources */,
+				A332422C1F11722300D54F6D /* SupportingFiles */,
+			);
+			path = RetrowaveRadio;
+			sourceTree = "<group>";
+		};
+		A332421A1F11722300D54F6D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A332421B1F11722300D54F6D /* MVC */,
+				A33242201F11722300D54F6D /* Networking */,
+				A33242211F11722300D54F6D /* SupportingClasses */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A332421B1F11722300D54F6D /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				A33242321F11725A00D54F6D /* AppDelegate.swift */,
+				A332421D1F11722300D54F6D /* Controllers */,
+				A332421E1F11722300D54F6D /* Models */,
+				A332421F1F11722300D54F6D /* Views */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		A332421D1F11722300D54F6D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A33242341F1172F900D54F6D /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A332421E1F11722300D54F6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A33242411F1179F300D54F6D /* TrackModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A332421F1F11722300D54F6D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A33242201F11722300D54F6D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A33242391F11765800D54F6D /* NetworkFacade.swift */,
+				A332423B1F11765800D54F6D /* URLComposer.swift */,
+				A332423C1F11765800D54F6D /* URLProvider.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A33242211F11722300D54F6D /* SupportingClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A33242221F11722300D54F6D /* Managers */,
+				A33242231F11722300D54F6D /* Utils */,
+			);
+			path = SupportingClasses;
+			sourceTree = "<group>";
+		};
+		A33242221F11722300D54F6D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A33242231F11722300D54F6D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A33242241F11722300D54F6D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A33242251F11722300D54F6D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A33242261F11722300D54F6D /* Assets.xcassets */,
+				A33242361F11760B00D54F6D /* Constants */,
+				A33242271F11722300D54F6D /* Plists */,
+				A33242291F11722300D54F6D /* Storyboards */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A33242271F11722300D54F6D /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				A33242281F11722300D54F6D /* Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		A33242291F11722300D54F6D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A332422A1F11722300D54F6D /* LaunchScreen.storyboard */,
+				A332422B1F11722300D54F6D /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A332422C1F11722300D54F6D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A33242361F11760B00D54F6D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A33242371F11760B00D54F6D /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A32F30521F0E345E00AEC372 /* RetrowaveRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A32F30651F0E345E00AEC372 /* Build configuration list for PBXNativeTarget "RetrowaveRadio" */;
+			buildPhases = (
+				438765C3003E150BB6D1958D /* [CP] Check Pods Manifest.lock */,
+				A32F304F1F0E345E00AEC372 /* Sources */,
+				A32F30501F0E345E00AEC372 /* Frameworks */,
+				A32F30511F0E345E00AEC372 /* Resources */,
+				9FE29F388E867FC0B6BFA584 /* [CP] Embed Pods Frameworks */,
+				468194887CA37633CAD33825 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RetrowaveRadio;
+			productName = RetrowaveRadio;
+			productReference = A32F30531F0E345E00AEC372 /* RetrowaveRadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A32F304B1F0E345E00AEC372 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = RomanOsadchuk;
+				TargetAttributes = {
+					A32F30521F0E345E00AEC372 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 62329HPVX9;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = A32F304E1F0E345E00AEC372 /* Build configuration list for PBXProject "RetrowaveRadio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A32F304A1F0E345E00AEC372;
+			productRefGroup = A32F30541F0E345E00AEC372 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A32F30521F0E345E00AEC372 /* RetrowaveRadio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A32F30511F0E345E00AEC372 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A33242301F11722300D54F6D /* LaunchScreen.storyboard in Resources */,
+				A332422E1F11722300D54F6D /* Assets.xcassets in Resources */,
+				A33242311F11722300D54F6D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		438765C3003E150BB6D1958D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		468194887CA37633CAD33825 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RetrowaveRadio/Pods-RetrowaveRadio-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FE29F388E867FC0B6BFA584 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RetrowaveRadio/Pods-RetrowaveRadio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A32F304F1F0E345E00AEC372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A33242401F11765800D54F6D /* URLProvider.swift in Sources */,
+				A33242421F1179F300D54F6D /* TrackModel.swift in Sources */,
+				A332423D1F11765800D54F6D /* NetworkFacade.swift in Sources */,
+				A33242331F11725A00D54F6D /* AppDelegate.swift in Sources */,
+				A332423F1F11765800D54F6D /* URLComposer.swift in Sources */,
+				A33242351F1172F900D54F6D /* MainViewController.swift in Sources */,
+				A33242381F11760B00D54F6D /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A32F30631F0E345E00AEC372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A32F30641F0E345E00AEC372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A32F30661F0E345E00AEC372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 515A5EE44F862F950E61051F /* Pods-RetrowaveRadio.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 62329HPVX9;
+				INFOPLIST_FILE = RetrowaveRadio/Resources/Plists/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.OR.RetrowaveRadio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A32F30671F0E345E00AEC372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 730A67A857A7AEA31CF9E5F1 /* Pods-RetrowaveRadio.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 62329HPVX9;
+				INFOPLIST_FILE = RetrowaveRadio/Resources/Plists/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.OR.RetrowaveRadio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A32F304E1F0E345E00AEC372 /* Build configuration list for PBXProject "RetrowaveRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32F30631F0E345E00AEC372 /* Debug */,
+				A32F30641F0E345E00AEC372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A32F30651F0E345E00AEC372 /* Build configuration list for PBXNativeTarget "RetrowaveRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32F30661F0E345E00AEC372 /* Debug */,
+				A32F30671F0E345E00AEC372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A32F304B1F0E345E00AEC372 /* Project object */;
+}
