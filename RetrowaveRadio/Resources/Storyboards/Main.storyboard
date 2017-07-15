@@ -23,8 +23,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsP-Ay-B78" userLabel="ContentContainer - UIView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ra-dN-VLX">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ra-dN-VLX">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palms-bg" translatesAutoresizingMaskIntoConstraints="NO" id="9y2-wD-bk4">
+                                        <rect key="frame" x="200" y="0.0" width="275" height="667"/>
                                     </imageView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhc-sl-TWs">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -45,18 +48,22 @@
                                                 </visualEffectView>
                                             </subviews>
                                         </view>
-                                        <blurEffect style="light"/>
+                                        <blurEffect style="dark"/>
                                     </visualEffectView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="6ra-dN-VLX" firstAttribute="leading" secondItem="lsP-Ay-B78" secondAttribute="leading" id="1tn-GS-1Mj"/>
+                                    <constraint firstAttribute="trailing" secondItem="9y2-wD-bk4" secondAttribute="trailing" constant="-100" id="5Ek-hj-gap"/>
                                     <constraint firstAttribute="trailing" secondItem="vhc-sl-TWs" secondAttribute="trailing" id="AqQ-Np-DJk"/>
                                     <constraint firstAttribute="bottom" secondItem="6ra-dN-VLX" secondAttribute="bottom" id="Jqx-En-6jx"/>
                                     <constraint firstAttribute="bottom" secondItem="vhc-sl-TWs" secondAttribute="bottom" id="KXj-Hm-7Au"/>
                                     <constraint firstAttribute="trailing" secondItem="6ra-dN-VLX" secondAttribute="trailing" id="R0c-ub-5YN"/>
+                                    <constraint firstAttribute="bottom" secondItem="9y2-wD-bk4" secondAttribute="bottom" id="Ziu-hi-5rz"/>
+                                    <constraint firstItem="9y2-wD-bk4" firstAttribute="leading" secondItem="lsP-Ay-B78" secondAttribute="leading" constant="200" id="bxX-7j-uGv"/>
                                     <constraint firstItem="6ra-dN-VLX" firstAttribute="top" secondItem="lsP-Ay-B78" secondAttribute="top" id="e8r-LT-BWc"/>
                                     <constraint firstItem="vhc-sl-TWs" firstAttribute="leading" secondItem="lsP-Ay-B78" secondAttribute="leading" id="fqV-MV-PD0"/>
+                                    <constraint firstItem="9y2-wD-bk4" firstAttribute="top" secondItem="lsP-Ay-B78" secondAttribute="top" id="qLm-lp-VTa"/>
                                     <constraint firstItem="vhc-sl-TWs" firstAttribute="top" secondItem="lsP-Ay-B78" secondAttribute="top" id="tOe-u7-UjA"/>
                                 </constraints>
                             </view>
@@ -78,4 +85,7 @@
             <point key="canvasLocation" x="140" y="108.39580209895054"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="palms-bg" width="1366" height="768"/>
+    </resources>
 </document>

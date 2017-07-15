@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
+import AlamofireImage
 
 class MainViewController: UIViewController {
 
@@ -52,6 +54,7 @@ class MainViewController: UIViewController {
         NetworkFacade.getTracks(cursor: cursor, limit: 100) { (tracks, error) in
             self.tracks = tracks ?? [TrackModel]()
             self.playTrackForCursor()
+            self.setupUIForCursor()
         }
     }
     
@@ -67,6 +70,9 @@ class MainViewController: UIViewController {
     fileprivate func setupUIForCursor() {
         if var artworkUrl = self.tracks[cursor].artworkUrl {
             artworkUrl = Constants.SchemeHTTP + "://" + Constants.API.Host + artworkUrl
+            if let url = URL(string: artworkUrl) {
+                self.backgroundImageView.af_setImage(withURL: url)
+            }
         }
     }
     
