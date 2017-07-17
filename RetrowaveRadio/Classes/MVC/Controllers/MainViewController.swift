@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
         if var artworkUrl = self.tracks[cursor].artworkUrl {
             artworkUrl = Constants.SchemeHTTP + "://" + Constants.API.Host + artworkUrl
             if let url = URL(string: artworkUrl) {
-                self.backgroundImageView.af_setImage(withURL: url)
+                self.backgroundImageView.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false, completion: nil)
             }
         }
     }
@@ -90,6 +90,7 @@ class MainViewController: UIViewController {
     func itemDidFinishPlaying(notification: Notification) {
         cursor += 1
         playTrackForCursor()
+        setupUIForCursor()
     }
 
 }
