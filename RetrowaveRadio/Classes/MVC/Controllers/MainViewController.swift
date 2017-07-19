@@ -10,14 +10,22 @@ import UIKit
 import AVFoundation
 import Alamofire
 import AlamofireImage
+import MediaPlayer
 
 class MainViewController: UIViewController {
 
+    @IBOutlet var backgroundImageView: UIImageView!
+    @IBOutlet var cassetteImageView: UIImageView!
+    
+    @IBOutlet var trackTitleLabel: UILabel!
+    @IBOutlet var timePassedLabel: UILabel!
+    @IBOutlet var totalTimeLabel: UILabel!
+    
+    @IBOutlet var horizontalSlider: MPVolumeView!
+    
     var player: AVPlayer?
     var cursor = 0
     var tracks = [TrackModel]()
-    
-    @IBOutlet var backgroundImageView: UIImageView!
     
 //MARK: - LifeCycle
 
@@ -48,6 +56,28 @@ class MainViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+//MARK: - Action
+    
+    @IBAction func handlePreviousButtonTap(_ sender: UIButton) {
+        playPreviousTrack()
+    }
+    
+    @IBAction func handleNextButtonTap(_ sender: UIButton) {
+        playNextTrack()
+    }
+    
+    @IBAction func handlePauseButtonTap(_ sender: UIButton) {
+        if player?.rate == 0 {
+            player?.play()
+        } else {
+            player?.pause()
+        }
+    }
+    
+    @IBAction func handleVolumeChangesSlide(_ sender: UISlider) {
+        
+    }
+    
 //MARK: - Private
     
     fileprivate func getTracks() {
@@ -68,11 +98,17 @@ class MainViewController: UIViewController {
     }
     
     fileprivate func setupUIForCursor() {
-        if var artworkUrl = self.tracks[cursor].artworkUrl {
+        let currentTrack = self.tracks[cursor]
+        if var artworkUrl = currentTrack.artworkUrl {
             artworkUrl = Constants.SchemeHTTP + "://" + Constants.API.Host + artworkUrl
             if let url = URL(string: artworkUrl) {
                 self.backgroundImageView.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false, completion: nil)
+                self.cassetteImageView.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false, completion: nil)
+
             }
+        }
+        if let trackTitle = currentTrack.title {
+            trackTitleLabel.text = trackTitle
         }
     }
     
@@ -85,12 +121,22 @@ class MainViewController: UIViewController {
         }
     }
     
-//MARK: - Observers
-    
-    func itemDidFinishPlaying(notification: Notification) {
+    func playNextTrack() {
         cursor += 1
         playTrackForCursor()
         setupUIForCursor()
+    }
+    
+    func playPreviousTrack() {
+        if cursor != 0 { cursor -= 1 }
+        playTrackForCursor()
+        setupUIForCursor()
+    }
+    
+//MARK: - Observers
+    
+    func itemDidFinishPlaying(notification: Notification) {
+        self.playNextTrack()
     }
 
 }

@@ -17,6 +17,7 @@
 		A332423F1F11765800D54F6D /* URLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332423B1F11765800D54F6D /* URLComposer.swift */; };
 		A33242401F11765800D54F6D /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332423C1F11765800D54F6D /* URLProvider.swift */; };
 		A33242421F1179F300D54F6D /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33242411F1179F300D54F6D /* TrackModel.swift */; };
+		A3F4C4201F1FB5C500AF5731 /* MPVolumeView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4C41F1F1FB5C500AF5731 /* MPVolumeView+Helpers.swift */; };
 		CFBCCC0C4FCB29C10EC8A10C /* Pods_RetrowaveRadio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5749336FEB5A3A60E2FE7818 /* Pods_RetrowaveRadio.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		A332423B1F11765800D54F6D /* URLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComposer.swift; sourceTree = "<group>"; };
 		A332423C1F11765800D54F6D /* URLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		A33242411F1179F300D54F6D /* TrackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
+		A3F4C41F1F1FB5C500AF5731 /* MPVolumeView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MPVolumeView+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		A33242241F11722300D54F6D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A3F4C41F1F1FB5C500AF5731 /* MPVolumeView+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				A33242401F11765800D54F6D /* URLProvider.swift in Sources */,
 				A33242421F1179F300D54F6D /* TrackModel.swift in Sources */,
 				A332423D1F11765800D54F6D /* NetworkFacade.swift in Sources */,
+				A3F4C4201F1FB5C500AF5731 /* MPVolumeView+Helpers.swift in Sources */,
 				A33242331F11725A00D54F6D /* AppDelegate.swift in Sources */,
 				A332423F1F11765800D54F6D /* URLComposer.swift in Sources */,
 				A33242351F1172F900D54F6D /* MainViewController.swift in Sources */,
