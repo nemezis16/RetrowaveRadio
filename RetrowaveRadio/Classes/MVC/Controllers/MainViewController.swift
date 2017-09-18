@@ -23,20 +23,50 @@ class MainViewController: UIViewController {
     
     @IBOutlet var horizontalSlider: MPVolumeView!
     
+    @IBOutlet var playImageView: UIImageView!
+    
+    var timeObserverToken: Any?
     var player: AVPlayer?
     var cursor = 0
     var tracks = [TrackModel]()
     
+    func setupCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        
+        commandCenter.pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            self.handlePauseButtonTap(nil)
+            return .success
+        }
+        
+        commandCenter.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            self.handlePauseButtonTap(nil)
+            return .success
+        }
+    
+        commandCenter.previousTrackCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            self.playPreviousTrack()
+            return .success
+        }
+        
+        commandCenter.nextTrackCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            self.playNextTrack()
+            return .success
+        }
+        
+    }
+    
 //MARK: - LifeCycle
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        _ = horizontalSlider.volumeSlider
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
             
             UIApplication.shared.beginReceivingRemoteControlEvents()
+            setupCommandCenter()
         } catch {
             print(error)
         }
@@ -48,7 +78,6 @@ class MainViewController: UIViewController {
         
         do {
             try AVAudioSession.sharedInstance().setActive(false)
-            
             UIApplication.shared.endReceivingRemoteControlEvents()
         } catch {
             print(error)
@@ -66,25 +95,22 @@ class MainViewController: UIViewController {
         playNextTrack()
     }
     
-    @IBAction func handlePauseButtonTap(_ sender: UIButton) {
+    @IBAction func handlePauseButtonTap(_ sender: UIButton?) {
         if player?.rate == 0 {
             player?.play()
+            playImageView.image = #imageLiteral(resourceName: "pause-button")
         } else {
             player?.pause()
+            playImageView.image = #imageLiteral(resourceName: "play-button")
         }
     }
-    
-    @IBAction func handleVolumeChangesSlide(_ sender: UISlider) {
-        
-    }
-    
+ 
 //MARK: - Private
     
     fileprivate func getTracks() {
         NetworkFacade.getTracks(cursor: cursor, limit: 100) { (tracks, error) in
             self.tracks = tracks ?? [TrackModel]()
-            self.playTrackForCursor()
-            self.setupUIForCursor()
+            self.playPreviousTrack()
         }
     }
     
@@ -102,9 +128,11 @@ class MainViewController: UIViewController {
         if var artworkUrl = currentTrack.artworkUrl {
             artworkUrl = Constants.SchemeHTTP + "://" + Constants.API.Host + artworkUrl
             if let url = URL(string: artworkUrl) {
-                self.backgroundImageView.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false, completion: nil)
-                self.cassetteImageView.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false, completion: nil)
-
+                self.updateInfoCenter()
+                self.backgroundImageView.af_setImage(withURL: url, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: false, completion: { (dataResponse) in
+                    self.cassetteImageView.image = dataResponse.value
+                    self.updateInfoCenter()
+                })
             }
         }
         if let trackTitle = currentTrack.title {
@@ -115,22 +143,63 @@ class MainViewController: UIViewController {
     fileprivate func playTrack(url: URL) {
         let playerItem = AVPlayerItem(url: url)
         NotificationCenter.default.addObserver(self, selector: #selector(itemDidFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
+        if self.timeObserverToken != nil {
+            player?.removeTimeObserver(self.timeObserverToken as Any)
+        }
         player = AVPlayer(playerItem: playerItem)
+       
+        var playerStart = true
+        self.timeObserverToken = player?.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1.0, Int32(NSEC_PER_SEC)), queue: DispatchQueue.main) {
+            [weak self] time in
+            guard let strongSelf = self else { return }
+
+            let duration = CMTimeGetSeconds(playerItem.duration)
+            if playerStart && duration > 0 {
+                strongSelf.totalTimeLabel.text = " / " + playerItem.duration.humanReadable
+                playerStart = false
+                
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
+//                    strongSelf.playNextTrack()
+//                })
+            }
+            if time.value > 0 {
+                strongSelf.timePassedLabel.text = playerItem.currentTime().humanReadable
+            }
+        }
+
         if let player = player {
             player.play()
         }
     }
     
-    func playNextTrack() {
+    fileprivate func playNextTrack() {
+        setDefaultTimerLabel()
         cursor += 1
         playTrackForCursor()
         setupUIForCursor()
     }
     
-    func playPreviousTrack() {
+    fileprivate func playPreviousTrack() {
         if cursor != 0 { cursor -= 1 }
         playTrackForCursor()
         setupUIForCursor()
+    }
+    
+    fileprivate func setDefaultTimerLabel() {
+        self.timePassedLabel.text = "00:00"
+        self.totalTimeLabel.text = " / 00:00"
+    }
+    
+    fileprivate func updateInfoCenter() {
+        let song = self.tracks[cursor]
+        guard let songTitle = song.title else { return }
+        var playingInfo = [MPMediaItemPropertyTitle : songTitle,
+                           MPNowPlayingInfoPropertyPlaybackRate : 1.0] as [String : Any]
+        if let image = self.cassetteImageView.image {
+            let artwork = MPMediaItemArtwork(image: image)
+            playingInfo[MPMediaItemPropertyArtwork] = artwork
+        }
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = playingInfo
     }
     
 //MARK: - Observers
