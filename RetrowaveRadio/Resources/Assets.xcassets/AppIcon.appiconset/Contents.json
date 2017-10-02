@@ -144,13 +144,6 @@
       "idiom" : "mac",
       "filename" : "app-icon-app-store.png",
       "scale" : "2x"
-    },
-    {
-      "size" : "40x40",
-      "idiom" : "ipad",
-      "filename" : "app-icon-spotlight.png",
-      "unassigned" : true,
-      "scale" : "1x"
     }
   ],
   "info" : {
