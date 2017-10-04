@@ -142,12 +142,14 @@ class MainViewController: UIViewController {
     
     fileprivate func playTrack(url: URL) {
         let playerItem = AVPlayerItem(url: url)
+        NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(itemDidFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
         if self.timeObserverToken != nil {
             player?.removeTimeObserver(self.timeObserverToken as Any)
+            player?.removeObserver(self, forKeyPath: "status")
         }
         player = AVPlayer(playerItem: playerItem)
-       
+        player?.addObserver(self, forKeyPath: "status", options: .init(rawValue: 0), context: nil)
         var playerStart = true
         self.timeObserverToken = player?.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1.0, Int32(NSEC_PER_SEC)), queue: DispatchQueue.main) {
             [weak self] time in
@@ -167,9 +169,9 @@ class MainViewController: UIViewController {
             }
         }
 
-        if let player = player {
-            player.play()
-        }
+//        if let player = player {
+//            player.play()
+//        }
     }
     
     fileprivate func playNextTrack() {
@@ -200,6 +202,20 @@ class MainViewController: UIViewController {
             playingInfo[MPMediaItemPropertyArtwork] = artwork
         }
         MPNowPlayingInfoCenter.default().nowPlayingInfo = playingInfo
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if ((object as? AVPlayer) == self.player) && (keyPath == "status") {
+            switch player!.status {
+            case .failed:
+                print("Failed")
+            case .readyToPlay:
+                print("ReadyToPlay")
+                self.player?.play()
+            case .unknown:
+                print("Unknown")
+            }
+        }
     }
     
 //MARK: - Observers
