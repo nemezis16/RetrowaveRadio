@@ -23,6 +23,7 @@ class NetworkFacade {
             print("Error composing URL")
             return
         }
+
         Alamofire.request(url).responseJSON { (response) in
             if let json = response.result.value as? [String : Any],
                 let body = json["body"] as? [String : Any],
